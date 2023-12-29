@@ -52,3 +52,19 @@ string longestCommonSubsequenceRecursive(const string& X, const string& Y, int m
 
     return (left.length() > right.length()) ? left : right;
 }
+// Brute Force Approach
+string longestCommonSubsequenceBruteForce(const string& X, const string& Y, int m, int n) {
+    if (m == 0 || n == 0)
+        return "";
+
+    if (X[m - 1] == Y[n - 1]) {
+        string result = longestCommonSubsequenceBruteForce(X, Y, m - 1, n - 1);
+        result += X[m - 1];
+        return result;
+    }
+
+    string left = longestCommonSubsequenceBruteForce(X, Y, m - 1, n);
+    string right = longestCommonSubsequenceBruteForce(X, Y, m, n - 1);
+
+    return (left.length() > right.length()) ? left : right;
+}
