@@ -68,3 +68,20 @@ string longestCommonSubsequenceBruteForce(const string& X, const string& Y, int 
 
     return (left.length() > right.length()) ? left : right;
 }
+int main() {
+    string X, Y;
+    cout << "Enter the first string: ";
+    cin >> X;
+
+    cout << "Enter the second string: ";
+    cin >> Y;
+
+    // Dynamic Programming
+    string lcsDP = longestCommonSubsequenceDP(X, Y);
+    int lenDP = lcsDP.length();
+
+    cout << "\nDynamic Programming Approach:" << endl;
+    cout << "Length of Longest Common Subsequence: " << lenDP << endl;
+    cout << "Longest Common Subsequence: " << lcsDP << "\n\n";
+    return 0;
+}
