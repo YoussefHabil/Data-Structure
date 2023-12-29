@@ -83,5 +83,14 @@ int main() {
     cout << "\nDynamic Programming Approach:" << endl;
     cout << "Length of Longest Common Subsequence: " << lenDP << endl;
     cout << "Longest Common Subsequence: " << lcsDP << "\n\n";
+
+// Recursive Approach
+    string lcsRecursive = longestCommonSubsequenceRecursive(X, Y, X.length(), Y.length());
+    int lenRecursive = lcsRecursive.length();
+
+    cout << "Recursive Approach:" << endl;
+    cout << "Length of Longest Common Subsequence: " << lenRecursive << endl;
+    cout << "Longest Common Subsequence: " << lcsRecursive << "\n\n";
+
     return 0;
 }
