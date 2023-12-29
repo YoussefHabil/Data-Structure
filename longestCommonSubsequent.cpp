@@ -92,5 +92,14 @@ int main() {
     cout << "Length of Longest Common Subsequence: " << lenRecursive << endl;
     cout << "Longest Common Subsequence: " << lcsRecursive << "\n\n";
 
+    // Brute Force Approach
+    string lcsBruteForce = longestCommonSubsequenceBruteForce(X, Y, X.length(), Y.length());
+    int lenBruteForce = lcsBruteForce.length();
+
+    cout << "Brute Force Approach:" << endl;
+    cout << "Length of Longest Common Subsequence: " << lenBruteForce << endl;
+    cout << "Longest Common Subsequence: " << lcsBruteForce << endl;
+
+
     return 0;
 }
