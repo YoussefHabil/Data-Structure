@@ -10,14 +10,17 @@ string longestCommonSubsequenceDP(const string& X, const string& Y) {
 
     int dp[m + 1][n + 1];
 
+    // Initialize the DP table
     for (int i = 0; i <= m; ++i)
         for (int j = 0; j <= n; ++j)
             dp[i][j] = 0;
 
+    // Fill in the DP table
     for (int i = 1; i <= m; ++i)
         for (int j = 1; j <= n; ++j)
             dp[i][j] = (X[i - 1] == Y[j - 1]) ? dp[i - 1][j - 1] + 1 : max(dp[i - 1][j], dp[i][j - 1]);
 
+    // Reconstruct the LCS
     int len = dp[m][n];
     string lcs(len, ' ');
 
@@ -57,20 +60,25 @@ string longestCommonSubsequenceRecursive(const string& X, const string& Y, int m
 // Brute Force Approach
 string longestCommonSubsequenceBruteForce(const string& X, const string& Y) {
     int m = X.length();
-    int n = Y.length();
 
+    // Initialize the longestSubsequence variable
     string longestSubsequence;
 
+    // Iterate over all possible subsequences of X
     for (int i = 0; i < (1 << m); ++i) {
         string currentSubsequence;
+
+        // Construct the current subsequence based on the bitmask
         for (int j = 0; j < m; ++j) {
             if (i & (1 << j)) {
                 currentSubsequence += X[j];
             }
         }
 
+        // Check if the current subsequence is a subsequence of Y
         size_t pos = 0;
-        for (char c : currentSubsequence) {
+        for (int k = 0; k < currentSubsequence.length(); ++k) {
+            char c = currentSubsequence[k];
             pos = Y.find(c, pos);
             if (pos == string::npos) {
                 break;
@@ -78,6 +86,7 @@ string longestCommonSubsequenceBruteForce(const string& X, const string& Y) {
             ++pos;
         }
 
+        // Update the longestSubsequence if the current one is longer
         if (pos != string::npos && currentSubsequence.length() > longestSubsequence.length()) {
             longestSubsequence = currentSubsequence;
         }
