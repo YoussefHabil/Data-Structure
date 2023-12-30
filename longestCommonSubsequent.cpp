@@ -1,5 +1,5 @@
 #include <iostream>
-#include <algorithm>
+#include <string>
 
 using namespace std;
 
@@ -88,7 +88,7 @@ string longestCommonSubsequenceBruteForce(const string& X, const string& Y) {
 
 int main() {
     string X, Y;
-    
+
     // Prompt user to enter the first string
     cout << "Enter the first string: ";
     cin >> X;
@@ -121,5 +121,5 @@ int main() {
     cout << "Length of Longest Common Subsequence: " << lenBruteForce << endl;
     cout << "Longest Common Subsequence: " << lcsBruteForce << endl;
 
-   return 0;
+    return 0;
 }
